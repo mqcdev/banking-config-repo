@@ -1,0 +1,24 @@
+server:
+  port: 9007
+
+spring:
+  application:
+    name: banking-customer-service
+  data:
+    mongodb:
+      uri: mongodb://${CUSTOMER_MONGO_USER}:${CUSTOMER_MONGO_PASSWORD}@${CUSTOMER_MONGO_HOST}:${CUSTOMER_MONGO_PORT}/${CUSTOMER_MONGO_DB}?authSource=admin
+      database: ${CUSTOMER_MONGO_DB}
+      authentication-database: admin
+      auto-index-creation: true
+
+nttdata:
+  openapi:
+    prod-url: ${CUSTOMER_SERVER_HOST}
+    dev-url: ${CUSTOMER_SERVER_HOST}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL}
