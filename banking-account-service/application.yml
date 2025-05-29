@@ -20,8 +20,6 @@ nttdata:
     dev-url: ${ACCOUNT_SERVER_HOST}
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_URL}
