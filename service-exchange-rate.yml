@@ -1,0 +1,33 @@
+server:
+  port: 8095
+  error:
+    include-message: always
+local:
+  property:
+    host:
+      ms-bank-account: ms-bank-account
+      ms-client: ms-client
+      ms-credits: ms-credit
+      ms-movement: ms-movement
+      ms-loan: ms-loan
+      ms-debit-card: ms-debit-card
+      ms-currency-type: ms-currency-type
+spring:
+  application:
+    name: service-exchange-rate
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:9093/eureka
+resilience4j:
+  circuitbreaker:
+    instances:
+      currencytypeCB:
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 8
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+message:
+  demo: leido desde git

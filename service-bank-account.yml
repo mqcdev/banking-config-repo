@@ -1,0 +1,56 @@
+server:
+  port: 8085
+  error:
+    include-message: always
+local:
+  property:
+    host:
+      ms-client: ms-client
+      ms-credits: ms-credit
+      ms-movement: ms-movement
+      ms-loan: ms-loan
+      ms-debit-card: ms-debit-card
+spring:
+  application:
+    name: service-bank-account
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/BankAccountDB
+      auto-index-creation: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:9093/eureka
+resilience4j:
+  circuitbreaker:
+    instances:
+      clientCB:
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 8
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+      creditCB:
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 8
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+      debitcardCB:
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 8
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+      movementCB:
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 4
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 8
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+message:
+  demo: leido desde git

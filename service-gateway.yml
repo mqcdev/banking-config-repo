@@ -1,0 +1,36 @@
+server:
+  port: 9090
+  error:
+    include-message: always
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      default-filters:
+      - name: SCGWGlobalFilter
+      routes:
+        - id: ms-client
+          uri: http://ms-client:8080/
+          predicates:
+            - Path=/api/clients/**
+        - id: ms-loan
+          uri: http://ms-loan:8082/
+          predicates:
+            - Path=/api/loans/**
+        - id: ms-movement
+          uri: http://ms-movement:8083/
+          predicates:
+            - Path=/api/movements/**
+        - id: ms-credit
+          uri: http://ms-credit:8084/
+          predicates:
+            - Path=/api/credits/**
+        - id: ms-bank-account
+          uri: http://ms-bank-account:8085/
+          predicates:
+            - Path=/api/bankaccounts/**
+        - id: debit-card
+          uri: http://localhost:8086/
+          predicates:
+            - Path=/api/debitcard/**

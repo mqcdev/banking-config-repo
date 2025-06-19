@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+spring:
+  application:
+    name: service-client
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/BankClientDB
+      auto-index-creation: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ms-discovery:9093/eureka
+resilience4j:
+  circuitbreaker:
+    instances:
+      creditCB:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 8
+        slidingWindowType: COUNT_BASED
+      loanCB:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 2s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 8
+        slidingWindowType: COUNT_BASED
+message:
+  demo: leido desde git
