@@ -19,7 +19,7 @@ spring:
     name: service-bootcoin-movement-purchase-request
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BuyBootcoinDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BuyBootcoinDB?authSource=admin
       auto-index-creation: true
   kafka:
     bootstrap-servers: kafka:9092
