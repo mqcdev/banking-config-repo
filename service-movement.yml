@@ -16,7 +16,7 @@ spring:
     name: service-movement
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MovementsDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MovementsDB?authSource=admin
       auto-index-creation: true
   kafka:
     bootstrap-servers: kafka:9092
