@@ -12,7 +12,7 @@ spring:
     name: service-client
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BankClientDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BankClientDB?authSource=admin
       auto-index-creation: true
   cloud:
     config:
