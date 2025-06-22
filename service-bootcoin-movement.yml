@@ -16,6 +16,18 @@ local:
 spring:
   application:
     name: service-bootcoin-movement
+  data:
+    mongodb:
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BootcoinMovementsDB
+      auto-index-creation: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topic:
+      bootcoin:
+        name: bootcoin-topic
 eureka:
   client:
     service-url:
