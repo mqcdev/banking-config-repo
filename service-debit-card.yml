@@ -15,7 +15,7 @@ spring:
     name: service-debit-card
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/DebitCardDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/DebitCardDB
       auto-index-creation: true
 eureka:
   client:
