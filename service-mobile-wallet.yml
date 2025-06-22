@@ -16,7 +16,7 @@ spring:
     name: service-mobile-wallet
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MobileWalletDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MobileWalletDB?authSource=admin
       auto-index-creation: true
   kafka:
     bootstrap-servers: kafka:9092
