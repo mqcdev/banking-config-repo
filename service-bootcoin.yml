@@ -14,6 +14,17 @@ local:
 spring:
   application:
     name: service-bootcoin
+  data:
+    mongodb:
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BootCoinDB
+      auto-index-creation: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: myGroup
+    topic:
+      bootcoin:
+        name: bootcoin-topic
 eureka:
   client:
     service-url:
