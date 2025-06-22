@@ -16,8 +16,15 @@ spring:
     name: service-mobile-wallet
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/MobileWalletDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MobileWalletDB
       auto-index-creation: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: myGroup
+    topic:
+      mobile:
+        name: mobile-wallet-topic
 eureka:
   client:
     service-url:
