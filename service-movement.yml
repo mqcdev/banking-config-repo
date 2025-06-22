@@ -10,13 +10,24 @@ local:
       ms-credits: ms-credit
       ms-loan: ms-loan
       ms-debit-card: ms-debit-card
+      ms-mobile-wallet: ms-mobile-wallet
 spring:
   application:
     name: service-movement
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/MovementsDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/MovementsDB
       auto-index-creation: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    topic:
+      mobile:
+        name: mobile-wallet-topic
+      bank:
+        name: bank-account-topic
 eureka:
   client:
     service-url:
