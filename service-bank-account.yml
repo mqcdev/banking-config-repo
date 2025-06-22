@@ -15,8 +15,15 @@ spring:
     name: service-bank-account
   data:
     mongodb:
-      uri: mongodb://mongodb:27017/BankAccountDB
+      uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/BankAccountDB
       auto-index-creation: true
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: myGroup
+    topic:
+      bank:
+        name: bank-account-topic
 eureka:
   client:
     service-url:
