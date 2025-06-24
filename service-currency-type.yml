@@ -7,7 +7,7 @@ local:
     host:
       ms-bank-account: ms-bank-account
       ms-client: ms-client
-      ms-credits: ms-credits
+      ms-credits: ms-credit
       ms-movement: ms-movement
       ms-loan: ms-loan
 spring:
